@@ -1,0 +1,119 @@
+* {
+    box-sizing: border-box;  
+  }
+.wrapper{
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100%;
+    
+    background-image: linear-gradient( 112.1deg,  rgba(32,38,57,1) 11.4%, rgba(63,76,119,1) 70.2% );
+}
+.dash-header-start{
+    height: auto;
+    text-align: center;
+}
+.dash-header-start h1 {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    color: white;
+}
+.dash-header-end{ 
+    text-align: center; 
+}
+.end-font {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    cursor: pointer;
+}
+
+.dashboard-wrapper{
+    height: 90vh;
+    background-size: cover;
+    background: linear-gradient(to bottom , #cb2d3e, #ef473a);
+    box-shadow: none;
+    border-radius: 20px;
+    box-shadow: 0px 0px 8px -2px rgba(0, 0, 0, 0.123);  
+    color: white; 
+}
+.dashboard-header{
+    text-align: center;
+    margin-top: 10px;
+}
+.custom-hr{
+    width: 80%;
+}
+.content-wrapper{
+    background-size: cover;
+    background-color: white;
+    max-height: 200%;
+    border-radius: 20px;
+}
+.main-marg{
+    margin-left: 10px;
+    margin-right: 10px;
+ }
+.header-marg{
+     margin-left: 10px;
+     margin-right: 10px;
+     padding-top: 10px;
+ }
+
+.collapsible-menu {
+    background-color: none;
+    width: auto;
+}.collapsible-menu ul {
+    list-style-type: none;
+    padding: 0;
+}.collapsible-menu a {
+    padding: 10px;
+    color: white;
+    display: block;
+    padding: 10px;
+    font-size: 15px;
+    margin: 4px 0;
+    position: relative;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    text-decoration: none;
+}
+.collapsible-menu a:before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 90%;
+    background: #34495e;
+    left: 0;
+    top: 0;
+    transition: all 0.3s ease-out;
+    opacity: 0;
+}
+.collapsible-menu a:hover::before {
+    opacity: 1;
+}
+
+.collapsible-menu label {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    font-weight: 200;
+    display: block;
+    cursor: pointer;
+}
+.collapsible-menu img {
+    padding-right: 10px;
+}
+.menu-content {
+    max-height: 0;
+    overflow: hidden;
+    font-family: 'Oswald', sans-serif; 
+    padding: 0 0 0 30px;
+}
+input:checked ~ .menu-content {
+    max-height: 100%;
+}
+
+#dashboard-header-logo{
+    max-height: 50px;
+}
+#end-logo img { 
+    max-height: 30px; 
+}
+#logo{
+    max-height: 30px;
+}

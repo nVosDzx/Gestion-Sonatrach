@@ -1,0 +1,99 @@
+<div style="margin-top: 50px;">
+<div fxLayout="row" fxLayoutAlign="space-around center" >
+    <form fxLayout="column" #f="ngForm" (ngSubmit)="save(f)">
+            <!-----Type---->
+            <mat-form-field appearance="outline" class="x xx">
+                <mat-label>Type</mat-label>
+                <input matInput required
+                placeholder="Le type de baie" 
+                [(ngModel)]="idBaie.type"
+                name="type"
+                #type="ngModel"
+                >
+                <mat-icon matSuffix>sensor_window</mat-icon>
+            </mat-form-field>
+            <!-----Etat---->
+            <mat-form-field appearance="outline" class="x">
+                <mat-label>Sélectionner un état</mat-label>
+            <select matNativeControl name="etat" [(ngModel)]="selectedetat">
+                <option *ngFor="let i of etats" [ngValue]="i">{{i}}</option>
+            </select>
+            </mat-form-field>
+            
+            <!-----Adresse IP---->
+            <mat-form-field appearance="outline" class="x">
+                <mat-label>Adresse IP</mat-label>
+                <input matInput required
+                placeholder="127.0.0.0"
+                [(ngModel)]="idBaie.adresse_ip"
+                name="adresse_ip"
+                #adresse="ngModel"
+                >
+                <mat-icon matSuffix>cloud</mat-icon>
+            </mat-form-field>
+             <!-----Espace utile ---->
+            <mat-form-field appearance="outline" class="x xx">
+                <mat-label>Espace utile</mat-label>
+                <input matInput required
+                placeholder="0 GB/TB" 
+                [(ngModel)]="idBaie.espace_utile"
+                name="espace_utile"
+                #date="ngModel"
+                >
+                <mat-icon matSuffix>sensor_window</mat-icon>
+            </mat-form-field>
+            <!-----Espace utilisé---->
+            <mat-form-field appearance="outline" class="x">
+                <mat-label>Espace utilisé</mat-label>
+                <input matInput required
+                placeholder="0 GB/TB"
+                [(ngModel)]="idBaie.espace_utilise"
+                name="espace_utilise"
+                #eu="ngModel"
+                >
+                <mat-icon matSuffix>flip</mat-icon>
+            </mat-form-field>
+            <!-----Espace disponbile---->
+            <mat-form-field appearance="outline" class="x">
+                <mat-label>Espace disponbile</mat-label>
+                <input matInput required
+                placeholder="0 GB/TB"
+                [(ngModel)]="idBaie.espace_dispo" 
+                name="espace_dispo"
+                #ed="ngModel"
+                >
+                <mat-icon matSuffix>backup_table</mat-icon>
+            </mat-form-field>
+            <!-----Support---->
+            <mat-form-field appearance="outline" class="x">
+                <mat-label>Support</mat-label>
+                <input matInput required
+                type="date"
+                [(ngModel)]="idBaie.support"
+                name="support"
+                #support="ngModel"
+                >
+            </mat-form-field>
+          
+    </form>
+    <mat-card class="card">
+            <mat-card-header fxLayoutAlign="center center">
+                    <mat-card-title><h4>{{type.value}}</h4></mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                    <h4 class="back"><b>Etat : {{selectedetat}}</b></h4>
+                    <h4 class="back"><b>Adresse IP : {{adresse.value}}</b></h4>
+                    <h4 class="back"><b>Espace utile: {{date.value}}</b></h4>
+                    <h4 class="back"><b>Espace Utilisé : {{eu.value}}</b></h4>
+                    <h4 class="back"><b>Espace Disponible : {{ed.value}}</b></h4>
+                    <h4 class="back"><b>Support : {{support.value}}</b></h4>
+            </mat-card-content>
+            <mat-card-actions fxLayoutAlign="center center">
+                <button routerLink="/baies/" mat-raised-button>Annuler</button>
+                <span style="padding-left: 10px;"></span>
+                <button type="submit" [disabled]="!f.valid" mat-flat-button color="primary" (click)="save(f)">Valider</button>
+            </mat-card-actions>
+    </mat-card>
+</div>
+
+</div>

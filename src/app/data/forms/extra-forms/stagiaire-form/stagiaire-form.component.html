@@ -1,0 +1,83 @@
+<div fxLayout="row" fxLayoutAlign="space-around center" >
+    <form fxLayout="column" #f="ngForm" (ngSubmit)="save(f)">
+            <!-----nom---->
+            <mat-form-field appearance="outline" class="x xx">
+                <mat-label>Nom & Prenom de stagiaire</mat-label>
+                <input matInput required
+                placeholder="Nom & Prenom de stagiaire" 
+                [(ngModel)]="idStagiaire.nom"
+                name="nom"
+                #nom="ngModel"
+                >
+                <mat-icon matSuffix>assignment_ind</mat-icon>
+            </mat-form-field>
+            
+            <!----Niveau--->
+            <mat-form-field appearance="outline" class="x xx">
+                <mat-label>Niveau</mat-label>
+                <input matInput required
+                placeholder="Niveau de stagiaire" 
+                [(ngModel)]="idStagiaire.niveau"
+                name="niveau"
+                #niveau="ngModel"
+                >
+                <mat-icon matSuffix>assignment</mat-icon>
+            </mat-form-field>
+            <!----theme---->
+            <mat-form-field appearance="outline" class="x xx">
+                <mat-label>Thème</mat-label>
+                <input matInput required
+                placeholder="Thème choisi" 
+                [(ngModel)]="idStagiaire.theme"
+                name="theme"
+                #theme="ngModel"
+                >
+                <mat-icon matSuffix>stars</mat-icon>
+            </mat-form-field>
+            <!-----dateD---->
+            <mat-form-field appearance="outline" class="x">
+                <mat-label>	La date de début de stage</mat-label>
+                <input matInput required
+                type="date"
+                [(ngModel)]="idStagiaire.date_d"
+                name="date_d"
+                #date_d="ngModel"
+                >
+            </mat-form-field>
+            <!-----dateF---->
+            <mat-form-field appearance="outline" class="x">
+                <mat-label>	La date de fin de stage</mat-label>
+                <input matInput required
+                type="date"
+                [(ngModel)]="idStagiaire.date_f"
+                name="date_f"
+                #date_f="ngModel"
+                >
+            </mat-form-field>
+            <!-----L'encadreur---->
+            <mat-form-field appearance="outline" class="x">
+                <mat-label>L'encadreur</mat-label>
+            <select matNativeControl  multiple name="encadreur" [(ngModel)]="selectedpersonne">
+                <option *ngFor="let i of personneinfos" [ngValue]="i">{{i}}</option>
+            </select>
+            </mat-form-field>
+          
+    </form>
+    <mat-card class="card">
+            <mat-card-header fxLayoutAlign="center center">
+                    <mat-card-title> <h2>{{nom.value}}</h2></mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <h4 class="back"><b>Niveau de Stagiaire : </b>{{niveau.value}}</h4>
+                <h4 class="back"><b>Théme choisi par le Stagiaire : </b>{{theme.value}}</h4>
+                <h4 class="back"><b>La date de début de stage : </b>{{date_d.value}}</h4>
+                <h4 class="back"><b>La date de fin de stage : </b>{{date_f.value}}</h4>
+                <h4 class="back"><b>L'encadreur : </b>{{selectedpersonne}}</h4>
+            </mat-card-content>
+            <mat-card-actions fxLayoutAlign="center center">
+                <button routerLink="/stagiaire/" mat-raised-button>Annuler</button>
+                    <span style="padding-left: 10px;"></span>
+                    <button type="submit" [disabled]="!f.valid" mat-flat-button color="primary" (click)="save(f)">Valider</button>
+            </mat-card-actions>
+    </mat-card>
+</div>

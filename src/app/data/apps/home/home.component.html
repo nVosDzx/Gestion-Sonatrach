@@ -1,0 +1,70 @@
+<div class="wrapper" *ngIf="user">
+    <div fxLayout="row" fxLayoutGap="10px" class="header-marg">
+        <div fxFlex="20" class="dash-header-start" >
+            <h1>Dashboard</h1>
+        </div>
+        <div fxFlex></div>
+        <div fxFlex="10" class="dash-header-end">
+                <div id="end-logo">
+                   
+                </div>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutGap="10px" class="main-marg">
+        <div fxFlex="20" class="dashboard-wrapper" style="overflow-y:auto;">
+            <div class="dashboard-header">
+                <h1>
+                    <img src="../../../assets/img/logo.png" id="dashboard-header-logo">
+                     <span style="padding-left: 10px;"></span> <a href="/" style="color: white;">Groupe Systeme</a> 
+                </h1> 
+            </div>
+            <hr class="custom-hr">
+            <div style="padding-left:20px">
+                <div class="collapsible-menu">
+                    <div style="margin-bottom: 20px;">
+                        <input type="checkbox" id="menu" hidden >
+                        <label for="menu"><img src="../../../../assets/img/icons/dashboard.png" id="logo">Application</label>
+                        <div class="menu-content">
+                            <ul>
+                                <li><a href="/baies"><img src="../../../assets/img/icons/baie.png" id="logo">Application stockage</a></li>
+                                <li><a href="/metier"><img src="../../../assets/img/icons/app-metier.png" id="logo">Application metier</a></li>
+                                <li><a href="/gestion"><img src="../../../assets/img/icons/app-gestion.png" id="logo">Application de gestion</a></li>
+                                <li><a href="/backup"><img src="../../../assets/img/icons/app-bckp.png" id="logo">Application Backup et Archivage</a></li>
+                                <li><a href="/pvr"><img src="../../../assets/img/icons/app-pvr.png" id="logo">Application Plateforme Virtuelle</a></li>
+                                <li><a href="/centre-de-traitement"><img src="../../../assets/img/icons/app-calcule.png" id="logo">Application Centre de traitement</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <input type="checkbox" id="activité" hidden>
+                        <label for="activité"><img src="../../../../assets/img/icons/extra.png" id="logo">Activites</label>
+                        <div class="menu-content">
+                            <ul>
+                                <li><a href="intervention"><img src="../../../assets/img/icons/intervention.png" id="logo">Interventions</a></li>
+                                <li><a href="reunion"><img src="../../../assets/img/icons/reunion.png" id="logo">Réunions</a></li>
+                                <li><a href="mission"><img src="../../../assets/img/icons/mission.png" id="logo">Missions</a></li>
+                                <li><a href="formation"><img src="../../../assets/img/icons/formation.png" id="logo">Formations</a></li>
+                                <li><a href="stagiaire"><img src="../../../assets/img/icons/etudiant.png" id="logo">Stagiaires</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="param" hidden>
+                        <label for="param"><img src="../../../../assets/img/icons/settings.png" id="logo">Paramétres</label>
+                        <div class="menu-content">
+                            <ul>
+                                <li><a href="register"><img src="../../../assets/img/icons/profile.png" id="logo">Gérer utilisateur</a></li>
+                                <li><a href (click)="logout()"><img src="../../../assets/img/icons/param.png" id="logo">Se deconnecter</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div fxFlex class="content-wrapper" style="overflow-y:auto;">
+                    <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+

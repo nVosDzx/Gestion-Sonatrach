@@ -1,0 +1,44 @@
+<div class="bck">
+<div fxLayoutAlign="center center" style="padding-top: 20px;" >
+    <div class="wrapper">
+        <div  fxLayout="column" fxLayoutAlign="center center" >
+            <h2>Liste de tâches à faire</h2>
+            <hr class="xhr">
+            <form #x="ngForm" (ngSubmit)="creatTask(x.value)" class="form">
+                <div class="input-group">
+                    <input  
+                    id="task" 
+                    type="text" 
+                    [(ngModel)]="task" 
+                    name="task"  
+                    placeholder="Votre tâche à faire" 
+                    autocomplete="off" 
+                    required>
+                    <span></span>
+                    <button [disabled]="!x.valid" type="submit" class="btn btn-outline-info btn-sm">Ajouter</button>
+                </div>
+            </form>
+        </div> 
+        
+            <mat-list *ngFor="let i of tasks">
+                <mat-divider></mat-divider>
+                <div fxLayout="row" fxLayoutAlign="space-around center">
+                    <div fxFlex="90">
+                        <mat-list-item>
+                            <h3><del *ngIf="i.isChecked == true">{{i.task}}</del></h3>
+                            <h3 *ngIf="i.isChecked == false">{{i.task}}</h3>
+                        </mat-list-item>
+                    </div>
+                    
+                    <div fxFlex="10">
+                        <button *ngIf="i.isChecked == false" mat-button (click)="updateT(i.key)"><mat-icon>check_circle_outline</mat-icon></button>
+                        <button *ngIf="i.isChecked == true" mat-button (click)="updateF(i.key)"><mat-icon>check_circle</mat-icon></button>
+                        <button mat-button (click)="delete(i.key)"><mat-icon>delete</mat-icon></button>
+                    </div>
+                </div>
+            </mat-list>
+        
+    </div>  
+</div>
+</div>
+

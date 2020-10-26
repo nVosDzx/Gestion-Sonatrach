@@ -1,0 +1,74 @@
+.menu-content {
+    font-family: 'Oswald', sans-serif; 
+    display:block;
+    padding: 10px;
+    text-decoration: none;
+    color: lightcoral;
+}
+.collapsible-menu {
+    background-color: rgb(255, 255, 255);
+    padding: 10px 10px 10px 10px;
+    border-bottom: 3px solid #e74c3c;
+    width: 300px;
+}.collapsible-menu ul {
+    list-style-type: none;
+    padding: 0;
+}.collapsible-menu a {
+    padding: 10px;
+    color: black;
+    display: block;
+    padding: 10px;
+    font-size: 14px;
+    margin: 4px 0;
+    position: relative;
+    text-decoration: none;
+}
+.collapsible-menu a:before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 90%;
+    background: #c0392b;
+    left: 0;
+    top: 0;
+    transition: 0.3s;
+    opacity: 0;
+}
+.collapsible-menu a:hover::before {
+    opacity: 1;
+}
+
+.collapsible-menu label {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 20px;
+    display: block;
+    cursor: pointer;
+}
+.collapsible-menu img {
+    padding-right: 10px;
+}
+.menu-content {
+    max-height: 0;
+    overflow: hidden;
+    font-family: 'Oswald', sans-serif; 
+    padding: 0 0 0 30px;
+}
+/* Toggle Effect */
+input:checked ~ label {
+    
+}
+input:checked ~ .menu-content {
+    max-height: 100%;
+}
+
+
+#logo{
+    max-height: 40px;
+}
+
+
+
+
+
+
+

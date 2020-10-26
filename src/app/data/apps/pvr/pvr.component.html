@@ -1,0 +1,35 @@
+<div fxLayout="row" style="padding-top: 10px;" fxLayoutAlign="space-around center" >
+    <mat-form-field style="width: 200px;" >
+        <mat-label>Search</mat-label>
+        <input matInput type="text" (keyup)="filter(query.value)" #query>
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <button  mat-raised-button routerLink="/pvr/add">Ajouter</button>
+  </div>
+    
+  <!------------->
+  <table class="table" >
+    <thead style="padding-left: 20px;">
+        <tr>
+           <th>Type</th>
+           <th>Adresse IP</th>
+           <th>Etat</th>
+           <th>Support</th>
+           <th></th>
+        </tr>
+    </thead>
+    <tbody style="padding-left: 20px;">
+        <tr *ngFor="let i of filtredPvrs">
+            <td>{{i.type}}</td>
+            <td>{{i.adresse_ip}}</td>
+            <td>{{i.etat}}</td>
+            <td>{{i.support}}</td>
+            <td>
+                <button mat-button [routerLink]="['/pvr/', i.key]"><mat-icon>edit</mat-icon></button>
+                <a  mat-icon-button (click)="delete(i.key)">
+                    <mat-icon>delete</mat-icon>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+  </table>

@@ -1,0 +1,35 @@
+<div fxLayout="row" style="padding-top: 10px;" fxLayoutAlign="space-around center" >
+    <mat-form-field style="width: 200px;" >
+        <mat-label>Search</mat-label>
+        <input matInput type="text" (keyup)="filter(query.value)" #query>
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <button  mat-raised-button routerLink="/reunion/add">Organiser une réunion</button>
+  </div>
+    
+  <!------------->
+  <table class="table" >
+    <thead style="padding-left: 20px;">
+        <tr>
+           <th>L'objet de la réunion</th>
+           <th>Lieu de la réunion</th>
+           <th>La date de la réunion</th>
+           <th>Membres de la réunion</th>
+           <th></th>
+        </tr>
+    </thead>
+    <tbody style="padding-left: 20px;">
+        <tr *ngFor="let i of filtredReunions">
+            <td>{{i.obj}}</td>
+            <td>{{i.lieu}}</td>
+            <td>{{i.date}}</td>
+            <td>{{i.personne}}</td>
+            <td>
+                <button mat-button [routerLink]="['/reunion/', i.key]"><mat-icon>edit</mat-icon></button>
+                <a  mat-icon-button (click)="delete(i.key)">
+                    <mat-icon>delete</mat-icon>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+  </table>

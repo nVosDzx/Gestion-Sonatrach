@@ -1,0 +1,68 @@
+<div fxLayout="row" fxLayoutAlign="space-around center"  style="padding-top: 50px;">
+    <form fxLayout="column" #f="ngForm" (ngSubmit)="save(f)">
+            <!-----Nom---->
+            <mat-form-field appearance="outline" class="x xx">
+                <mat-label>Nom</mat-label>
+                <input matInput required
+                placeholder="Nom" 
+                ngModel
+                name="nom"
+                >
+                <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+             <!-----Prenom---->
+             <mat-form-field appearance="outline" class="x xx">
+                <mat-label>Prenom</mat-label>
+                <input matInput required
+                placeholder="Prenom" 
+                ngModel
+                name="prenom"
+                >
+                <mat-icon matSuffix>perm_identity</mat-icon>
+            </mat-form-field>
+             <!-----Email---->
+             <mat-form-field appearance="outline" class="x xx">
+                <mat-label>Email</mat-label>
+                <input matInput required
+                type="email"
+                placeholder="Email" 
+                ngModel
+                name="email"
+                >
+                <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+             <!-----Mot de Pass---->
+             <mat-form-field appearance="outline" class="x xx">
+                <mat-label>Mot de Pass</mat-label>
+                <input matInput required
+                placeholder="Mot de Pass" 
+                type="password"
+                ngModel
+                name="password"
+                >
+                <mat-icon matSuffix>lock</mat-icon>
+            </mat-form-field>
+             <!-----Matricule---->
+             <mat-form-field appearance="outline" class="x xx">
+                <mat-label>Matricule</mat-label>
+                <input matInput required
+                placeholder="Matricule" 
+                ngModel
+                name="matricule"
+                >
+                <mat-icon matSuffix>keyboard</mat-icon>
+            </mat-form-field>
+            <!-----roles---->
+            <mat-form-field appearance="outline">
+                <mat-label>Sélectionner le rôle de l'utilisateur</mat-label>
+            <select matNativeControl multiple name="role" [(ngModel)]="selectedroles">
+                <option *ngFor="let i of roles" [ngValue]="i">{{i}}</option>
+            </select>
+            </mat-form-field>
+            <div>
+                            <button routerLink="/register/" mat-raised-button>Annuler</button>
+                            <span style="padding-right: 10px;"> </span>
+                            <button type="submit" [disabled]="!f.valid" mat-flat-button color="primary" (click)="save(f)">Valider</button>
+            </div>
+    </form>  
+</div>

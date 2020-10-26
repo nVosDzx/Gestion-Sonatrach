@@ -1,0 +1,33 @@
+<div class="background">
+    <div class="login-wrapper">
+        <form class="form" #f="ngForm" (ngSubmit)="login(f)">
+            <img src="../../../../assets/img/logo.png" alt="logo">
+            <div class="input-group">
+                <input 
+                type="text"
+                id="email" 
+                required 
+                ngModel 
+                name="email"
+                required
+                #email="ngModel"
+                autocomplete="off">
+                <label for="email">Email</label>
+            </div>           
+            <div class="input-group">
+                <input 
+                type="password"
+                id="password"
+                ngModel 
+                name="password"
+                required
+                #pwd="ngModel"
+                autocomplete="off">
+                <label for="password">Password</label>
+            </div>
+            <button [disabled]="!f.valid" class="btn-submit">Se Connecter</button>
+        </form>
+    </div>
+</div>
+
+

@@ -1,0 +1,70 @@
+<div fxLayout="row" fxLayoutAlign="space-around center" >
+    <form fxLayout="column" #f="ngForm" (ngSubmit)="save(f)">
+            <!-----obj---->
+            <mat-form-field appearance="outline" class="x xx">
+                <mat-label>L'objet</mat-label>
+                <input matInput required
+                placeholder="L'objet de la mission" 
+                [(ngModel)]="idMission.obj"
+                name="obj"
+                #obj="ngModel"
+                >
+                <mat-icon matSuffix>api</mat-icon>
+            </mat-form-field>
+            <!-----lieu---->
+            <mat-form-field appearance="outline" class="x xx">
+                <mat-label>Lieu</mat-label>
+                <input matInput required
+                placeholder="Lieu de la mission" 
+                [(ngModel)]="idMission.lieu"
+                name="lieu"
+                #lieu="ngModel"
+                >
+                <mat-icon matSuffix>my_location</mat-icon>
+            </mat-form-field>
+            <!-----date---->
+            <mat-form-field appearance="outline" class="x">
+                <mat-label>	La date de début de la mission</mat-label>
+                <input matInput required
+                type="date"
+                [(ngModel)]="idMission.date_d"
+                name="date_d"
+                #date_d="ngModel"
+                >
+            </mat-form-field>
+            <!-----date---->
+            <mat-form-field appearance="outline" class="x">
+                <mat-label>	La date de fin de la mission</mat-label>
+                <input matInput required
+                type="date"
+                [(ngModel)]="idMission.date_f"
+                name="date_f"
+                #date_f="ngModel"
+                >
+            </mat-form-field>
+            <!-----membre---->
+            <mat-form-field appearance="outline" class="x">
+                <mat-label>Les personnes concernés</mat-label>
+            <select matNativeControl multiple name="personne" [(ngModel)]="selectedpersonne">
+                <option *ngFor="let i of personneinfos" [ngValue]="i">{{i}}</option>
+            </select>
+            </mat-form-field>
+          
+    </form>
+    <mat-card class="card">
+            <mat-card-header fxLayoutAlign="center center">
+                    <mat-card-title> <h2>{{obj.value}}</h2></mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <h4 class="back"><b>Lieu de la mission  : </b>{{lieu.value}}</h4>
+                <h4 class="back"><b>La date de début de la mission : </b>{{date_d.value}}</h4>
+                <h4 class="back"><b>La date de fin la mission : </b>{{date_f.value}}</h4>
+                <h4 class="back"><b>Membres de la mission : </b>{{selectedpersonne}}</h4>
+            </mat-card-content>
+            <mat-card-actions fxLayoutAlign="center center">
+                <button routerLink="/mission/" mat-raised-button>Annuler</button>
+                <span style="padding-left: 10px;"></span>
+                    <button type="submit" [disabled]="!f.valid" mat-flat-button color="primary" (click)="save(f)">Valider</button>
+            </mat-card-actions>
+    </mat-card>
+</div>

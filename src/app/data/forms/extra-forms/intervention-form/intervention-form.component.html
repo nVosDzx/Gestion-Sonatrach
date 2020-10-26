@@ -1,0 +1,58 @@
+<div fxLayout="row" fxLayoutAlign="space-around center" >
+  <form fxLayout="column" #f="ngForm" (ngSubmit)="save(f)">
+          <!-----obj---->
+          <mat-form-field appearance="outline" class="x xx">
+              <mat-label>L'objet</mat-label>
+              <input matInput required
+              placeholder="L'objet de l'intervention'" 
+              [(ngModel)]="idIntervention.obj"
+              name="obj"
+              #obj="ngModel"
+              >
+              <mat-icon matSuffix>api</mat-icon>
+          </mat-form-field>
+            <!-----date---->
+          <mat-form-field appearance="outline" class="x">
+              <mat-label>	La date de l'intervention</mat-label>
+              <input matInput required
+              type="date"
+              [(ngModel)]="idIntervention.date"
+              name="date"
+              #date="ngModel"
+              >
+          </mat-form-field>
+          <!-----Description---->
+          <mat-form-field appearance="outline" class="x xx">
+            <mat-label>Description</mat-label>
+            <textarea matInput required 
+            placeholder="Description"
+            [(ngModel)]="idIntervention.desc"
+            name="desc"
+              #desc="ngModel"></textarea>
+          </mat-form-field>
+          <!-----membre---->
+         
+          <mat-form-field appearance="outline" class="x">
+            <mat-label>Qui fait l'intervention</mat-label>
+        <select matNativeControl  multiple name="personne" [(ngModel)]="selectedpersonne">
+            <option *ngFor="let i of personneinfos" [ngValue]="i">{{i}}</option>
+        </select>
+        </mat-form-field>
+          
+  </form>
+  <mat-card class="card">
+          <mat-card-header fxLayoutAlign="center center">
+                  <mat-card-title> <h2>{{obj.value}}</h2></mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+              <h4 class="back"><b>La date de l'intervention : </b>{{date.value}}</h4>
+              <h4 class="back"><b>Description : </b>{{desc.value}}</h4>
+              <h4 class="back"><b>La personne qui fait l'intervention : </b>{{selectedpersonne}}</h4>
+          </mat-card-content>
+          <mat-card-actions fxLayoutAlign="center center">
+                  <button routerLink="/intervention-AS/" mat-raised-button>Annuler</button>
+                    <span style="padding-left: 10px;"></span>
+                  <button type="submit" [disabled]="!f.valid" mat-flat-button color="primary" (click)="save(f)">Valider</button>
+          </mat-card-actions>
+  </mat-card>
+</div>

@@ -1,0 +1,37 @@
+<div fxLayout="row" style="padding-top: 10px;" fxLayoutAlign="space-around center" >
+    <mat-form-field style="width: 200px;" >
+        <mat-label>Search</mat-label>
+        <input matInput type="text" (keyup)="filter(query.value)" #query>
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <button  mat-raised-button routerLink="/mission/add">Ajouter</button>
+  </div>
+    
+  <!------------->
+  <table class="table" >
+    <thead style="padding-left: 20px;">
+        <tr>
+           <th>L'objet de la mission</th>
+           <th>Lieu de la mission</th>
+           <th>Date de début</th>
+           <th>Date de fin</th>
+           <th>Les personne concernés</th>
+           <th></th>
+        </tr>
+    </thead>
+    <tbody style="padding-left: 20px;">
+        <tr *ngFor="let i of filtredMissions">
+            <td>{{i.obj}}</td>
+            <td>{{i.lieu}}</td>
+            <td>{{i.date_d}}</td>
+            <td>{{i.date_f}}</td>
+            <td>{{i.personne}}</td>
+            <td>
+                <button mat-button [routerLink]="['/mission/', i.key]"><mat-icon>edit</mat-icon></button>
+                <a  mat-icon-button (click)="delete(i.key)">
+                    <mat-icon>delete</mat-icon>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+  </table>
